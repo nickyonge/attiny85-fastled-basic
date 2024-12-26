@@ -17,9 +17,13 @@
 // max current in mA FastLED will use, if > 0, and `FASTLED_MAX_VOLTAGE` is also > 0
 #define FASTLED_MAX_CURRENT_MA 250
 // if true, assigns rainbow colors on start
-#define SET_LEDS_RAINBOW_ON_START true
+#define SET_LEDS_RAINBOW_ON_START false
 // if true, use rainbow blackout pattern to test LEDs
-#define DEBUG_RAINBOW_BLACKOUT_PATTERN false
+#define DEBUG_RAINBOW_BLACKOUT_PATTERN true
+// delay interval between LEDs in rainbow blackout pattern (will interfere with input smoothing)
+#define DEBUG_RAINBOW_BLACKOUT_PATTERN_DELAY 10
+// how many loops between LEDs rainbow pattern and blackout
+#define DEBUG_RAINBOW_BLACKOUT_PATTERN_LOOPCOUNT 3
 // if > 0, only update this number of LEDs
 #define DEBUG_LED_LOOP_UPDATE_LIMIT 0
 
@@ -47,6 +51,18 @@
 #endif
 #if defined(DEBUG_RAINBOW_BLACKOUT_PATTERN) && DEBUG_RAINBOW_BLACKOUT_PATTERN + 0 <= 0
 #undef DEBUG_RAINBOW_BLACKOUT_PATTERN // check for valid definition (`true` or x > 0)
+#endif
+#if defined(DEBUG_RAINBOW_BLACKOUT_PATTERN_DELAY) && DEBUG_RAINBOW_BLACKOUT_PATTERN_DELAY + 0 <= 0
+#undef DEBUG_RAINBOW_BLACKOUT_PATTERN_DELAY // check for valid definition (`true` or x > 0)
+#endif
+#if defined(DEBUG_RAINBOW_BLACKOUT_PATTERN_LOOPCOUNT) && DEBUG_RAINBOW_BLACKOUT_PATTERN_LOOPCOUNT + 0 <= 1
+#undef DEBUG_RAINBOW_BLACKOUT_PATTERN_LOOPCOUNT // check for valid definition (`true` or x > 0)
+#endif
+#if defined(DEBUG_RAINBOW_BLACKOUT_PATTERN_DELAY) && !defined(DEBUG_RAINBOW_BLACKOUT_PATTERN)
+#undef DEBUG_RAINBOW_BLACKOUT_PATTERN_DELAY // can't have delay without pattern
+#endif
+#if defined(DEBUG_RAINBOW_BLACKOUT_PATTERN_LOOPCOUNT) && !defined(DEBUG_RAINBOW_BLACKOUT_PATTERN)
+#undef DEBUG_RAINBOW_BLACKOUT_PATTERN_LOOPCOUNT // can't have loopcount without pattern
 #endif
 #if defined(DEBUG_LED_LOOP_UPDATE_LIMIT) && DEBUG_LED_LOOP_UPDATE_LIMIT + 0 <= 0
 #undef DEBUG_LED_LOOP_UPDATE_LIMIT // check for valid definition (`true` or x > 0)

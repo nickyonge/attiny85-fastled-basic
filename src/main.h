@@ -13,7 +13,7 @@
 #define SETUP_FINISH_DELAY 20
 
 // duration, in ms, at the end of each `loop()` cycle in `main.h` 
-#define LOOP_DELAY_INTERVAL 10
+#define LOOP_DELAY_INTERVAL 5
 
 void setup();
 void loop();
