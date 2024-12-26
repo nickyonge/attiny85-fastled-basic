@@ -4,7 +4,7 @@
 // Pin definitions, with graphic pinout representations for ATtinyX4/X5 MCUs
 // Note: see bottom of file for ATtinyX4 setup (specifically for Arduino CW/CCW pinout definition)
 
-#define PIN_DATA 0 // pin for FastLED dataZ
+#define PIN_LED_DATA 0 // pin for FastLED dataZ
 
 /* PINOUT DIAGRAMS FOR ATTINYX4 / ATTINYX5
 
