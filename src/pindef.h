@@ -4,9 +4,17 @@
 // Pin definitions, with graphic pinout representations for ATtinyX4/X5 MCUs
 // Note: see bottom of file for ATtinyX4 setup (specifically for Arduino CW/CCW pinout definition)
 
-#define PIN_DATA 0 // pin for data (example)
+#define PIN_DATA 0 // pin for FastLED dataZ
 
 /* PINOUT DIAGRAMS FOR ATTINYX4 / ATTINYX5
+
+                             ATtinyX5
+                            ┌───╥┬───╖
+     RESET,5,A0,PCI5,PB5 - =╡ ● ╙┘   ╠≤ - VCC [2.7-5.5V]
+        3,A3,X1,PCI3,PB3 - =╡   D    ╬= - 2,INT0,A1,SCK/SCL,PCI2,PB2
+        4,A2,X2,PCI4,PB4 - ≈╡   8    ╠≈ - 1,DO,RXD,PCI1,PB1
+                     GND - ≤╡        ╠≈ - 0,DI,TXD,SDA,PCI0,PB0
+                            ╘════════╝
 
                              ATtinyX4
                             ┌───╥┬───╖
@@ -17,14 +25,6 @@
      8(2),INT0,PCI10,PB2 - ≈╪   1    ╠= - 3(7),A3,PCI3,PA3
         7(3),A7,PCI7,PA7 - ≈╡   4    ╠= - 4(6),A4,SCK/SCL,PCI4,PA4
  6(4),A6,SDA/DI,PCI6,PA6 - ≈╡        ╠≈ - 5(5),A5,DO,PCI5,PA5
-                            ╘════════╝
-
-                             ATtinyX5
-                            ┌───╥┬───╖
-     RESET,5,A0,PCI5,PB5 - =╡ ● ╙┘   ╠≤ - VCC [2.7-5.5V]
-        3,A3,X1,PCI3,PB3 - =╡   D    ╬= - 2,INT0,A1,SCK/SCL,PCI2,PB2
-        4,A2,X2,PCI4,PB4 - ≈╡   8    ╠≈ - 1,DO,RXD,PCI1,PB1
-                     GND - ≤╡        ╠≈ - 0,DI,TXD,SDA,PCI0,PB0
                             ╘════════╝
 
     = - Pin
