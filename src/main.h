@@ -8,9 +8,9 @@
 #include "leds.h"
 
 // delay, in ms, between each step of setup
-#define SETUP_STEP_DELAY 10
+#define SETUP_STEP_DELAY 1
 // delay, in ms, after setup() has complete, before beginning loop() 
-#define SETUP_FINISH_DELAY 1000
+#define SETUP_FINISH_DELAY 20
 
 // duration, in ms, at the end of each `loop()` cycle in `main.h` 
 #define LOOP_DELAY_INTERVAL 10
