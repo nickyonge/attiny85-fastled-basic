@@ -33,7 +33,7 @@ void setupLEDs()
     for (int i = 0; i < FASTLED_LEDS; i++)
     {
 #ifdef SET_LEDS_RAINBOW_ON_START
-        leds[i] = CRGB(CHSV(i * rainbowMultiplier, 255, 255));
+        leds[i] = CRGB(CHSV(i * rainbowMultiplier, 255, 32));
 #else
         leds[i] = CRGB::Black;
 #endif

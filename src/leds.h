@@ -9,7 +9,7 @@
 #include "pindef.h"
 
 // number of LEDs in the LED strip
-#define FASTLED_LEDS 11
+#define FASTLED_LEDS 22
 // should LEDs only be updated when a change in RGB value is detected?
 #define ONLY_UPDATE_LEDS_ON_CHANGE true
 // if true, assigns rainbow colors on start
@@ -17,7 +17,7 @@
 // if true, use rainbow blackout pattern to test LEDs
 #define DEBUG_RAINBOW_BLACKOUT_PATTERN false
 // if > 0, only update this number of LEDs
-#define DEBUG_LED_LOOP_UPDATE_LIMIT 10
+#define DEBUG_LED_LOOP_UPDATE_LIMIT 0
 
 // -------------------------------------------- DEFINITION VALIDATION CHECKS ---
 #if defined(FASTLED_LEDS) && FASTLED_LEDS + 0 <= 0
