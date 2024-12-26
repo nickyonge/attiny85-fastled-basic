@@ -1,18 +1,22 @@
-#include <Arduino.h>
+#include <main.h>
 
-// put function declarations here:
-int myFunction(int, int);
+void setup()
+{
 
-void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+#ifdef ENABLE_LEDS
+    delay(SETUP_STEP_DELAY);
+    setupLEDs();
+#endif // ENABLE_LEDS
+
+    delay(SETUP_FINISH_DELAY);
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
-}
+void loop()
+{
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+#ifdef ENABLE_LEDS
+    loopLEDs();
+#endif
+
+    delay(LOOP_DELAY_INTERVAL);
 }
