@@ -10,8 +10,12 @@
 
 // number of LEDs in the LED strip
 #define FASTLED_LEDS 22
-// should LEDs only be updated when a change in RGB value is detected?
-#define ONLY_UPDATE_LEDS_ON_CHANGE true
+// global brightness FastLED will use, if > 0
+#define FASTLED_BRIGHTNESS 100
+// max voltage FastLED will use, if > 0, and `FASTLED_MAX_CURRENT_MA` is also > 0
+#define FASTLED_MAX_VOLTAGE 5
+// max current in mA FastLED will use, if > 0, and `FASTLED_MAX_VOLTAGE` is also > 0
+#define FASTLED_MAX_CURRENT_MA 250
 // if true, assigns rainbow colors on start
 #define SET_LEDS_RAINBOW_ON_START true
 // if true, use rainbow blackout pattern to test LEDs
@@ -22,6 +26,21 @@
 // -------------------------------------------- DEFINITION VALIDATION CHECKS ---
 #if defined(FASTLED_LEDS) && FASTLED_LEDS + 0 <= 0
 #undef FASTLED_LEDS // check for valid definition (`true` or x > 0)
+#endif
+#if defined(FASTLED_BRIGHTNESS) && FASTLED_BRIGHTNESS + 0 <= 0
+#undef FASTLED_BRIGHTNESS // check for valid definition (`true` or x > 0)
+#endif
+#if defined(FASTLED_MAX_VOLTAGE) && FASTLED_MAX_VOLTAGE + 0 <= 0
+#undef FASTLED_MAX_VOLTAGE // check for valid definition (`true` or x > 0)
+#endif
+#if defined(FASTLED_MAX_CURRENT_MA) && FASTLED_MAX_CURRENT_MA + 0 <= 0
+#undef FASTLED_MAX_CURRENT_MA // check for valid definition (`true` or x > 0)
+#endif
+#if defined(FASTLED_MAX_VOLTAGE) && !defined(FASTLED_MAX_CURRENT_MA)
+#undef FASTLED_MAX_VOLTAGE // cannot have voltage without current
+#endif
+#if defined(FASTLED_MAX_CURRENT_MA) && !defined(FASTLED_MAX_VOLTAGE)
+#undef FASTLED_MAX_CURRENT_MA // cannot have current without voltage
 #endif
 #if defined(ONLY_UPDATE_LEDS_ON_CHANGE) && ONLY_UPDATE_LEDS_ON_CHANGE + 0 <= 0
 #undef ONLY_UPDATE_LEDS_ON_CHANGE // check for valid definition (`true` or x > 0)
